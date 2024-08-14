@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 public class WalletServiceImpl implements WalletService {
     private final WalletRepository repository;
 
+@Override
+public boolean isWalletExistById(Integer id) {
+        return repository.existsById(id);
+    }
     @Override
     public Integer getWalletAmount(Integer id) {
         return repository.getReferenceById(id).getAmount();
@@ -29,6 +33,8 @@ public class WalletServiceImpl implements WalletService {
         wallet.setAmount(newAmount);
         repository.save(wallet);
     }
+
+
 
 
 }

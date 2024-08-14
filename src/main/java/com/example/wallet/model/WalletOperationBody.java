@@ -1,6 +1,4 @@
 package com.example.wallet.model;
-
-
 import lombok.Getter;
 
 @Getter
