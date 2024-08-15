@@ -11,11 +11,11 @@ public class WalletServiceImpl implements WalletService {
     private final WalletRepository repository;
 
 @Override
-public boolean isWalletExistById(Integer id) {
+public boolean isWalletExistById(String id) {
         return repository.existsById(id);
     }
     @Override
-    public Integer getWalletAmount(Integer id) {
+    public Integer getWalletAmount(String id) {
         return repository.getReferenceById(id).getAmount();
     }
 
