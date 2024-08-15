@@ -26,7 +26,7 @@ public class WalletServiceImpl implements WalletService {
 
         var wallet = repository.getReferenceById(body.getWalletID());
         var currentAmount = wallet.getAmount();
-        int newAmount = 0;
+        int newAmount;
 
         if (body.getOperationType().equals(OperationType.DEPOSIT.toString()))
             newAmount = currentAmount + body.getAmount();

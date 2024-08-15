@@ -2,15 +2,20 @@ package com.example.wallet.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+@Getter
 public class Wallet {
-    @Id
+
+    @Id()
     private String id;
 
-    @Getter
     @Setter
     private Integer amount;
+
+
 }

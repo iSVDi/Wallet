@@ -6,6 +6,4 @@ public interface WalletService {
     boolean isWalletExistById(String id);
     Integer getWalletAmount(String id);
     void updateWallet(WalletOperationBody body);
-
-
 }
