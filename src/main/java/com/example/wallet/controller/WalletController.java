@@ -3,6 +3,7 @@ package com.example.wallet.controller;
 import com.example.wallet.exception.WalletAmountErrors;
 import com.example.wallet.exception.WalletException;
 import com.example.wallet.model.OperationType;
+import com.example.wallet.model.Wallet;
 import com.example.wallet.model.WalletOperationBody;
 import com.example.wallet.service.WalletService;
 import jakarta.validation.Valid;
@@ -11,14 +12,21 @@ import lombok.AllArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/v1")
 @AllArgsConstructor
 @Validated
-// TODO add handling errors
+
 public class WalletController {
 
     private final WalletService service;
+
+    @GetMapping("wallets")
+    List<Wallet> getAllWallets() {
+        return service.getAllWallets();
+    }
 
     @GetMapping("wallets/{id}")
     Integer getWalletAmount(@Pattern(regexp = "^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$", message = "Wrong id") @PathVariable String id) {
