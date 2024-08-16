@@ -29,7 +29,7 @@ public class WalletController {
     }
 
     @GetMapping("wallets/{id}")
-    Integer getWalletAmount(@Pattern(regexp = "^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$", message = "Wrong id") @PathVariable String id) {
+    Integer getWalletAmount(@Pattern(regexp = "^[0-9a-z]{8}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{4}-[0-9a-z]{12}$") @PathVariable String id) {
         checkIsWalletExist(id);
         return service.getWalletAmount(id);
     }
