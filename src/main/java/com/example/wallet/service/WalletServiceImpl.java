@@ -1,10 +1,13 @@
 package com.example.wallet.service;
 
 import com.example.wallet.model.OperationType;
+import com.example.wallet.model.Wallet;
 import com.example.wallet.model.WalletOperationBody;
 import com.example.wallet.repository.WalletRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -35,6 +38,11 @@ public class WalletServiceImpl implements WalletService {
 
         wallet.setAmount(newAmount);
         repository.save(wallet);
+    }
+
+    @Override
+    public List<Wallet> getAllWallets() {
+        return repository.findAll();
     }
 
 }
